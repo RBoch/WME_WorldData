@@ -1,0 +1,12 @@
+header nav ul {
+    text-align: center;
+}
+
+header nav li {
+    display: inline-block;
+}
+
+header nav a {
+    display: block;
+    width: 8em;
+}
