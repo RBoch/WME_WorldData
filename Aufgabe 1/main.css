@@ -1,12 +1,42 @@
-header nav ul {
-    text-align: center;
+body {
+    margin: 0px;
 }
 
-header nav li {
+header {
+    width: 100%;
+    position: fixed;
+    background-color: #b2b2b2;
+}
+
+header img, header nav {
     display: inline-block;
+    vertical-align: middle;
 }
 
-header nav a {
+.headnav {
+    height: 100%;
+}
+
+header nav ul {
     display: block;
-    width: 8em;
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+
+li {
+    float: left;
+}
+
+li a {
+    display: block;
+    color: whitesmoke;
+    text-align: center;
+
+    text-decoration: none;
+}
+
+li a:hover {
+    background-color: #d4d4d4;
+    color: black;
 }
