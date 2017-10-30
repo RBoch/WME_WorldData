@@ -4,6 +4,10 @@ body {
     font-family:"Roboto", sans-serif;
 }
 
+a {
+    color: green;
+}
+
 header {
     width: 100%;
     position: fixed;
