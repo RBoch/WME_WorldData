@@ -1,5 +1,7 @@
+
 body {
     margin: 0px;
+    font-family:"Roboto", sans-serif;
 }
 
 header {
@@ -24,7 +26,8 @@ header nav ul {
     list-style-type: none;
     margin: 0;
     padding: 0;
-    font-family: "Font Awesome";
+    
+    font-family: "fontawesome";
 }
 
 li {
@@ -66,6 +69,7 @@ li a:hover {
     background-color: #333;
     margin: 4px 0;
 }
+import url("http://fontawesome.io/");
 
 
-
+@import url('https://fonts.googleapis.com/css?family=Roboto');
