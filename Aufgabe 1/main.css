@@ -57,7 +57,7 @@ li a:hover {
 }
 
 
-#content {
+.spacing {
     padding-top: 6em;
 }
 
@@ -79,6 +79,17 @@ li a:hover {
     border-width: 2px;
     border-style: solid;
     column-count: 3;
+}
+
+footer {
+    border-top-width: 2px;
+    border-top-style: solid;
+    border-top-color: green;
+}
+
+footer p{
+    float: right;
+    text-align: right;
 }
 import url("http://fontawesome.io/");
 
