@@ -81,7 +81,36 @@ li a:hover {
     column-count: 3;
 }
 
+div.table {
+    display: table;
+    border-collapse: collapse;
+}
+div.thead {
+    display: table-header-group;
+}
+
+div.th {
+    display: table-cell;
+    padding: 8px;
+    width: 100px;
+    text-align: left;
+    font-weight: bold;
+}
+
+div.tr {
+    display: table-row;
+}
+
+div.td {
+    display: table-cell;
+    border-top: thin solid gray;
+    padding: 8px;
+    width: 100px;
+    text-align: left;
+}
+
 footer {
+    padding: 14px;
     border-top-width: 2px;
     border-top-style: solid;
     border-top-color: green;
