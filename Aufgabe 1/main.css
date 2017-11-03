@@ -4,8 +4,13 @@ body {
     font-family:"Roboto", sans-serif;
 }
 
-.wrapper {
+#headwrapper {
     margin: auto;
+    max-width: 1170;
+}
+#wrapper {
+    margin: auto;
+    padding-top:5em; 
     max-width: 1170px;
 }
 
@@ -15,7 +20,7 @@ a {
 
 header {
     width: 100%;
-    position: fixed;
+    position: fixed;;
     background-color: #b2b2b2;
       background-image:linear-gradient(grey,white);
 }
@@ -58,11 +63,6 @@ li a:hover {
     color: black;
 }
 
-
-.spacing {
-    padding-top: 6em;
-}
-
 /*Menü Icon */
 .container {
     display: inline-block;
@@ -79,7 +79,7 @@ li a:hover {
 .textbox {
     box-shadow: 0.3em 0.3em 0.3em grey;
     padding: 1em;
-    border-color: gray; 
+    border-color: grey; 
     border-bottom-color: #9ac334;
     border-width: 0.1em;
     border-bottom-width: 0.2em;
@@ -87,7 +87,19 @@ li a:hover {
     column-count: 3;
 }
 
+.showhide {
+    margin: 2em;
+    font-size: 1em;
+    color: grey;
+}
+
+.showhide a {
+    color: #b0b0b0;
+    text-decoration: underline;
+    cursor: pointer;
+}
 table {
+    margin-top: 2em;
     width: 100%;
     display: table;
     border-collapse: collapse;
@@ -101,7 +113,7 @@ th {
     padding: 0.5em;
     text-align: left;
     font-weight: bold;
-    border-bottom: solid gray;
+    border-bottom: solid grey;
 }
 
 tr {
@@ -110,12 +122,13 @@ tr {
 
 td {
     display: table-cell;
-    border-top: thin solid gray;
+    border-top: thin solid grey;
     padding: 0.5em;
     text-align: left;
 }
 
 footer {
+    margin-top: 2em;    
     padding: 1em;
     border-top-width: 0.2em;
     border-top-style: solid;
