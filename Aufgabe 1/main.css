@@ -1,4 +1,11 @@
+
 @import url('https://fonts.googleapis.com/css?family=Roboto');
+
+*{
+   font-family:"Roboto", sans-serif; 
+}
+
+
 body {
     margin: 0px;
     font-family:"Roboto", sans-serif;
@@ -12,6 +19,11 @@ body {
     margin: auto;
     padding-top:5em; 
     max-width: 1170px;
+
+}
+
+.content {
+    min-width: auto;
 }
 
 a {
@@ -22,7 +34,8 @@ header {
     width: 100%;
     position: fixed;;
     background-color: #b2b2b2;
-      background-image:linear-gradient(grey,white);
+      background-image:linear-gradient(gray,white);
+    border-bottom: 1px solid darkgray;
 }
 
 header img, header nav {
@@ -33,16 +46,29 @@ header img, header nav {
 .headnav {
     height: 100%;
     
+    
 }
 
 header nav ul {
     display: block;
     list-style-type: none;
+
     margin-left: 2em;
+
+    margin: 0;
+    padding: 0;
+    font-family: "fontawesome";
+      padding-left: 35px;
+
+      
 }
 
 li {
     float: left;
+    border-left:1px solid darkgray;
+    border-right:1px solid darkgray;
+
+
 }
 
 li a {
@@ -51,22 +77,35 @@ li a {
     text-align: center;
     text-decoration: none;
     margin: auto;
+
     min-width:8em;
+
     height: auto;
     -moz-transition: background 0,2s;
     -moz-transition-duration: 4s;
-    color: black;
+    color: dimgray;;
+ line-height: 80px;
+   
+    
+    
 }
 
 li a:hover {
-    background-color: #d4d4d4;
+    background-color: gray;
     color: black;
 }
+
 
 /*Menü Icon */
 .container {
     display: inline-block;
     cursor: pointer;
+}
+
+
+#content {
+    padding-top: 175px;
+
 }
 
 .textbox {
@@ -155,3 +194,7 @@ footer p{
     float: right;
     text-align: right;
 }
+
+import url("http://fontawesome.io/");
+
+
