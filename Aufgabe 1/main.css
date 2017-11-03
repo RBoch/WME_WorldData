@@ -60,14 +60,13 @@ header nav ul {
     font-family: "fontawesome";
       padding-left: 35px;
 
+      
 }
 
 li {
     float: left;
-
     border-left:1px solid darkgray;
     border-right:1px solid darkgray;
-      
 
 
 }
@@ -85,7 +84,7 @@ li a {
     -moz-transition: background 0,2s;
     -moz-transition-duration: 4s;
     color: dimgray;;
- line-height: 35px;
+ line-height: 80px;
    
     
     
