@@ -37,7 +37,7 @@ header nav ul {
 }
 
 li {
-    float: left;   
+    float: left;
 }
 
 li a {
@@ -46,7 +46,7 @@ li a {
     text-align: center;
     text-decoration: none;
     margin: auto;
-    min-width:6em;
+    min-width:8em;
     height: auto;
     -moz-transition: background 0,2s;
     -moz-transition-duration: 4s;
