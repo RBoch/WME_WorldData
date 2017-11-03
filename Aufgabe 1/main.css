@@ -22,10 +22,6 @@ body {
 
 }
 
-.content {
-    min-width: auto;
-}
-
 a {
     color: 9ac334;
 }
@@ -47,6 +43,10 @@ header img, header nav {
     height: 100%;
     
     
+}
+
+  logo a:hover {
+      background: url(world_data_logo_v1_a_02.png) no-repeat top left;
 }
 
 header nav ul {
@@ -108,13 +108,15 @@ li a:hover {
 
 }
 
+   
+
 .textbox {
     box-shadow: 0.3em 0.3em 0.3em grey;
     padding: 1em;
     border-color: grey; 
-    border-bottom-color: #9ac334;
+    border-top-color: #9ac334;
     border-width: 0.1em;
-    border-bottom-width: 0.2em;
+    border-top-width: 0.2em;
     border-style: solid;
 }
 
