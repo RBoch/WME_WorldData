@@ -4,8 +4,13 @@ body {
     font-family:"Roboto", sans-serif;
 }
 
+.wrapper {
+    margin: auto;
+    max-width: 1170px;
+}
+
 a {
-    color: green;
+    color: 9ac334;
 }
 
 header {
@@ -75,13 +80,18 @@ li a:hover {
 }
 
 .textbox {
-    border-color: green;
-    border-width: 2px;
+    box-shadow: 5px 5px 5px grey;
+    padding: 1em;
+    border-color: gray; 
+    border-bottom-color: #9ac334;
+    border-width: 0.5px;
+    border-bottom-width: 3px;
     border-style: solid;
     column-count: 3;
 }
 
 table {
+    width: 100%;
     display: table;
     border-collapse: collapse;
 }
@@ -95,6 +105,7 @@ th {
     width: 100px;
     text-align: left;
     font-weight: bold;
+    border-bottom: solid gray;
 }
 
 tr {
@@ -113,7 +124,7 @@ footer {
     padding: 14px;
     border-top-width: 2px;
     border-top-style: solid;
-    border-top-color: green;
+    border-top-color: #9ac334;
 }
 
 footer p{
