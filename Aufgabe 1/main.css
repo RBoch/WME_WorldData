@@ -133,46 +133,56 @@ li a:hover {
 table {
     margin-top: 2em;
     width: 100%;
-    display: table;
     border-collapse: collapse;
-}
-thead {
-    display: table-header-group;
 }
 
 th {
-    display: table-cell;
+
     padding: 0.5em;
-    text-align: left;
+    text-align: right;
     font-weight: bold;
     border-bottom: solid grey;
 }
 
-tr {
-    display: table-row;
-}
-
-
 td {
-    display: table-cell;
     border-top: thin solid grey;
     padding: 0.5em;
-    text-align: left;
+    text-align: right;
 }
-@media (max-width: 320px){
+
+@media (min-width: 0px) and (max-width: 320px){
     .textbox {
         column-count: 1;
     }
+    #childrencol {
+        visibility: collapse;
+    }
+    #electricitycol {
+        visibility: collapse;
+    }
+    #internetcol {
+        visibility: collapse;
+    }
 }
-@media (min-width:320px){
+@media (min-width:320px) and (max-width: 786px){
     .textbox {
         column-count: 1;
+    }
+    #electricitycol {
+        visibility: collapse;
+    }
+    #internetcol {
+        visibility: collapse;
     }
 }
 
-@media (min-width:786px){
+@media (min-width:786px) and (max-width: 1200px){
     .textbox {
         column-count: 2;
+    }
+    #internetcol {
+        visibility: collapse;
+        width: 0;
     }
 }
 
