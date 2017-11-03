@@ -84,8 +84,8 @@ li a:hover {
     border-width: 0.1em;
     border-bottom-width: 0.2em;
     border-style: solid;
-    column-count: 3;
 }
+
 
 .showhide {
     margin: 2em;
@@ -120,11 +120,58 @@ tr {
     display: table-row;
 }
 
+
 td {
     display: table-cell;
     border-top: thin solid grey;
     padding: 0.5em;
     text-align: left;
+}
+@media (max-width: 320px){
+    .textbox {
+        column-count: 1;
+    }
+    #childrencol {
+        display: none;
+        visibility: collapse;
+    }
+    #electricitycol {
+        display: none;
+        visibility: collapse;
+    }
+    #internetcol {
+        display: none;
+        visibility: collapse;
+    }
+}
+@media (min-width:320px){
+    .textbox {
+        column-count: 1;
+    }
+    #childrencol {
+        display: none;
+        visibility: collapse;
+    }
+    #electricitycol {
+        display: none;
+        visibility: collapse;
+    }
+    #internetcol {
+        display: none;
+        visibility: collapse;
+    }
+}
+
+@media (min-width:786px){
+    .textbox {
+        column-count: 2;
+    }
+}
+
+@media (min-width:1200px){
+    .textbox {
+        column-count: 3;
+    }
 }
 
 footer {
