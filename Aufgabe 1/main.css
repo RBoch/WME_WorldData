@@ -81,15 +81,15 @@ li a:hover {
     column-count: 3;
 }
 
-div.table {
+table {
     display: table;
     border-collapse: collapse;
 }
-div.thead {
+thead {
     display: table-header-group;
 }
 
-div.th {
+th {
     display: table-cell;
     padding: 8px;
     width: 100px;
@@ -97,11 +97,11 @@ div.th {
     font-weight: bold;
 }
 
-div.tr {
+tr {
     display: table-row;
 }
 
-div.td {
+td {
     display: table-cell;
     border-top: thin solid gray;
     padding: 8px;
