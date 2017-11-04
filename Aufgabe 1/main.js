@@ -83,3 +83,13 @@ function toggleMenu() {
       x.className = "mainnav";
   }
 }
+
+function logoIn(){
+  var logo = document.getElementById("logo");
+  logo.src = "logo_grey.png"
+}
+
+function logoOut(){
+  var logo = document.getElementById("logo");
+  logo.src = "logo_color.png"
+}
