@@ -49,17 +49,6 @@ header img, header nav {
     z-index: 1;
 }
 
-#logo:hover{
-    background-image:  url(world_data_logo_v1_a_02.png);
-    
-    
-}
-
-.headnav {
-    height: 100%;  
-    
-}
-
 header nav ul {
     display: block;
     list-style-type: none;
@@ -78,44 +67,21 @@ li {
 }
 
 li a {
-    display: block;
     color: whitesmoke;
     text-align: center;
     text-decoration: none;
     margin: auto;
-
     min-width:8em;
-
     height: auto;
     -moz-transition: background 0,2s;
     -moz-transition-duration: 4s;
     color: dimgray;;
  line-height: 80px;
-   
-    
-    
 }
 
 li a:hover {
     background-color: gray;
     color: black;
-}
- 
-nav .bar .toggle {
-        display: none; 
-    /*nur auf 0bis480px sichtbar*/
-    }
-
-
-/*Menü Icon */
-.container {
-    display: inline-block;
-    cursor: pointer;
-}
-
-
-#content {
-    padding-top: 175px;
 }
 
 h1 {
@@ -131,6 +97,7 @@ h1 {
     border-width: 0.1em;
     border-top-width: 0.2em;
     border-style: solid;
+    columns: 1;
 }
 
 
@@ -158,12 +125,6 @@ h1 {
     color: #9ac334;
 }
 
-.fa-angle-up-active {
-    color: black;
-}
-.fa-angle-down-active {
-    color: black;
-}
 
 table {
     margin-top: 2em;
@@ -176,112 +137,89 @@ th {
     text-align: left;
     font-weight: bold;
     border-bottom: solid grey;
-
 }
 
 td {
     padding:  0.5em;
     padding:  0.5em;
     text-align: left;
-
 }
 
+.internetcol{
+    visibility: collapse;
+}
+.electricitycol{
+    visibility: collapse;
+}
+.childrencol{
+    visibility: collapse;
+}
 
-@media (min-width: 0px) and (max-width: 480px){
+#toggle {
+    visibility: visible;
+    float: right;
+    margin-top: 3em;
+    margin-right: 3em;
+}
+
+.mainnav a {
+    display: none;
+}
+
+.mainnav.responsive a {
+    float: none;
+    display: block;
+    text-align: left;
+  }
+
+  
+.mainnav.responsive li {
+    width: 100%;
+    padding-left: 10px;
+  }
+
+@media (min-width:480px){
+
     .textbox {
         column-count: 1;
-    }
-    .internetcol{
-        width: 0;
-        visibility: collapse;
-    }
-    .electricitycol{
-        width: 0;
-        visibility: collapse;
     }
     .childrencol{
-        width: 0;
-        visibility: collapse;
-    }
-    
-       nav .bar .toggle {
-    display: inline-block;     
-    float: right;
-       margin-top: -5em;     
-    padding: 10px;
-    cursor: pointer;
-    }
-     nav ul {
-         display:none;  
-    }
-    
-    li {
-        background: white;
-        list-style: none;
-    border-left:none;
-    border-right:none;
-        
+        visibility: visible;
     }
 
-    li a {
-    display: inline-block;
-    height: inherit;
-    text-align: left;
-    text-decoration: none;
-    
-    margin: auto;
-    min-width:8em;
-        -moz-transition: background 0,2s;
-        -moz-transition-duration: 4s;
-    float: none;
-        
-    }
-
-    li a:hover {
-        background-color: gray;
-        color: black;
-    }
-    .content {
-    max-width: 1170px;
-    margin: 0 5px;
-    }
-   ul .submenu{
-      visibility: hidden;  
-    }
-    nav .bar .toggle :active .submenu{
-	visibility: visible;
-	height: auto;
-}
-}
-
-
-@media (min-width:480px) and (max-width: 786px){
-    .textbox {
-        column-count: 1;
-    }
-    .internetcol{
-        width: 0;
-        visibility: collapse;
-    }
-    .electricitycol{
-        width: 0;
-        visibility: collapse;
-    }
-}
-/*Deskop*/
-@media (min-width:786px) and (max-width: 1200px){
     .textbox {
         column-count: 2;
     }
-    .internetcol{
-        width: 0;
-        visibility: collapse;
-    }
 }
 
-@media (min-width:1200px){
+/*Tablet*/
+@media (min-width:786px){
+    #toggle {
+        display: none;
+    }
+    
+    .mainnav a{
+        display: block;
+    }
+
+    .mainnav.responsive li {
+        width: auto;
+        padding-left: 0;
+      }
+
     .textbox {
         column-count: 3;
+    }
+    
+    .electricitycol{
+        visibility: visible;
+    }
+}
+/*Deskop*/
+@media (min-width:1024px){
+ 
+    .internetcol{
+        visibility: visible;
     }
 }
 
