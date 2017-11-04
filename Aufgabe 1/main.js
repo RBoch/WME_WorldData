@@ -1,3 +1,4 @@
+
 function showhide(n){
     var sections = document.getElementsByClassName("showhide");
     var cols = document.getElementsByTagName("col");
@@ -72,3 +73,4 @@ function sort(n) {
     }
   }
 }
+

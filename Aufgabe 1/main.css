@@ -46,14 +46,18 @@ header img, header nav {
     vertical-align: middle;  
 }
 
-.headnav {
-    height: 100%;
+#logo{
+    z-index: 1;
+}
+
+#logo:hover{
+    background-image:  url(world_data_logo_v1_a_02.png);
     
     
 }
 
-logo a:hover {
-      background: url(world_data_logo_v1_a_02.png) no-repeat top left;
+.headnav {
+    height: 100%;  
 }
 
 header nav ul {
@@ -101,6 +105,11 @@ li a:hover {
     background-color: gray;
     color: black;
 }
+ 
+nav .bar .toggle {
+        display: none; 
+    /*nur auf 0bis480px sichtbar*/
+    }
 
 
 /*Menü Icon */
@@ -182,6 +191,7 @@ td {
 
 }
 
+
 @media (min-width: 0px) and (max-width: 480px){
     .textbox {
         column-count: 1;
@@ -198,7 +208,62 @@ td {
         width: 0;
         visibility: collapse;
     }
+    
+    
+    header img, header nav, header  nav.bar .toggle{
+        display: inline-block;
+        vertical-align: middle; 
+    }
+    
+       nav .bar .toggle {
+    display: inline-block;     
+    float: right;
+       margin-top: -5em;     
+    padding: 10px;
+    cursor: pointer;
+    }
+    header nav ul {
+           list-style: none;       
+       /* visibility: hidden;*/
+       
+    }
+    li {
+        background: white;
+        list-style: none;
+        
+    }
+
+    li a {
+    display: inline-block;
+    height: inherit;
+    text-align: left;
+    text-decoration: none;
+    
+    margin: auto;
+    min-width:8em;
+        -moz-transition: background 0,2s;
+        -moz-transition-duration: 4s;
+    float: none;
+        
+    }
+
+    li a:hover {
+        background-color: gray;
+        color: black;
+    }
+    .content {
+    max-width: 1170px;
+    margin: 0 5px;
+    }
+   ul .submenu{
+      visibility: hidden;  
+    }
+    nav .bar .toggle :active .submenu{
+	visibility: visible;
+	height: auto;
 }
+}
+
 
 @media (min-width:480px) and (max-width: 786px){
     .textbox {
@@ -213,7 +278,7 @@ td {
         visibility: collapse;
     }
 }
-
+/*Deskop*/
 @media (min-width:786px) and (max-width: 1200px){
     .textbox {
         column-count: 2;

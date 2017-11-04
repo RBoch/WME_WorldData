@@ -22,12 +22,17 @@
             <header>
                 <div id="headwrapper">
                 <a href="">
-                    <div class="logo"></div>
                     <img id="logo" src="world_data_logo_v1_a_01.png" alt="WorldData">
-                </a>
+            
+                </a>   
                 <nav class="headnav" id="mainnav">
-                    
-                    <ul class="container" onclick="myFunction(this)">
+                    <div class="bar">
+                        <a href="#">
+                            <div class="logo"></div>
+                        </a>
+                        <i class="fa fa-list-ul toggle" ></i>
+                    </div>
+                    <ul class="container" onclick="myFunction(this)" class="submenu">
 
                         <li>
                             <a href="">
@@ -67,7 +72,6 @@
                         </li>
 
                     </ul>
-                
                 </nav>
                 <script>
                     function myFunction(x) {
@@ -576,5 +580,7 @@
                 </p>
             </footer>
         </div>
+        
+        <script src="main.js"></script>
     </body>
 </html>
