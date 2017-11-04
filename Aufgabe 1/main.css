@@ -1,4 +1,3 @@
-
 @import url('https://fonts.googleapis.com/css?family=Roboto');
 
 *{
@@ -58,28 +57,24 @@ header img, header nav {
 
 .headnav {
     height: 100%;  
+    
 }
 
 header nav ul {
     display: block;
     list-style-type: none;
-
     margin-left: 2em;
-
     margin: 0;
     padding: 0;
     font-family: "fontawesome";
-      padding-left: 35px;
-
-      
+      padding-left: 35px;  
+    
 }
 
 li {
     float: left;
     border-left:1px solid darkgray;
     border-right:1px solid darkgray;
-
-
 }
 
 li a {
@@ -209,12 +204,6 @@ td {
         visibility: collapse;
     }
     
-    
-    header img, header nav, header  nav.bar .toggle{
-        display: inline-block;
-        vertical-align: middle; 
-    }
-    
        nav .bar .toggle {
     display: inline-block;     
     float: right;
@@ -222,14 +211,15 @@ td {
     padding: 10px;
     cursor: pointer;
     }
-    header nav ul {
-           list-style: none;       
-       /* visibility: hidden;*/
-       
+     nav ul {
+         display:none;  
     }
+    
     li {
         background: white;
         list-style: none;
+    border-left:none;
+    border-right:none;
         
     }
 
@@ -307,5 +297,3 @@ footer p{
     float: right;
     text-align: right;
 }
-
-

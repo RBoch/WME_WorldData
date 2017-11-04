@@ -74,3 +74,8 @@ function sort(n) {
   }
 }
 
+/*Menü responsiv*/
+function toggle_menu(menu_id) {
+    var menu = document.getElementById(menu_id);
+    menu.style.display = menu.style.display == "inline" ? "none" : "inline";
+}
