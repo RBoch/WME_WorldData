@@ -13,7 +13,7 @@ body {
 
 #headwrapper {
     margin: auto;
-    max-width: 1170;
+    max-width: 1170px;
 }
 #wrapper {
     margin: auto;
@@ -134,46 +134,53 @@ li a:hover {
 }
 table {
     margin-top: 2em;
-    width: 100%;
     border-collapse: collapse;
+    width: 100%;
 }
 
 th {
-
-    padding: 0.5em;
-    text-align: right;
+    padding:  0.5em;
+    text-align: left;
     font-weight: bold;
     border-bottom: solid grey;
+
 }
 
 td {
-    border-top: thin solid grey;
-    padding: 0.5em;
-    text-align: right;
+    padding:  0.5em;
+    padding:  0.5em;
+    text-align: left;
+
 }
 
-@media (min-width: 0px) and (max-width: 320px){
+@media (min-width: 0px) and (max-width: 480px){
     .textbox {
         column-count: 1;
     }
-    #childrencol {
+    .internetcol{
+        width: 0;
         visibility: collapse;
     }
-    #electricitycol {
+    .electricitycol{
+        width: 0;
         visibility: collapse;
     }
-    #internetcol {
+    .childrencol{
+        width: 0;
         visibility: collapse;
     }
 }
-@media (min-width:320px) and (max-width: 786px){
+
+@media (min-width:480px) and (max-width: 786px){
     .textbox {
         column-count: 1;
     }
-    #electricitycol {
+    .internetcol{
+        width: 0;
         visibility: collapse;
     }
-    #internetcol {
+    .electricitycol{
+        width: 0;
         visibility: collapse;
     }
 }
@@ -182,9 +189,9 @@ td {
     .textbox {
         column-count: 2;
     }
-    #internetcol {
-        visibility: collapse;
+    .internetcol{
         width: 0;
+        visibility: collapse;
     }
 }
 
@@ -206,7 +213,5 @@ footer p{
     float: right;
     text-align: right;
 }
-
-import url("http://fontawesome.io/");
 
 
