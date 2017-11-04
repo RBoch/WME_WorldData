@@ -1,8 +1,8 @@
-<!DOCTYPE html5>
+<!DOCTYPE html>
 <html lang="de">
 
     <head>
-        <meta charset="utf-8">
+        <meta charset="utf-8"/>
         <title>WorldData, Team 35</title>
         <meta name="author" content="Sara Fritze, Robert Bochmann">
         <meta name="description" content="Lösung zur Aufgabe 1 Web und Multimedia Engineering WS1718 Team 35">
@@ -80,7 +80,7 @@
             <div class="spacing"></div>
     
             <h1 id="maintitle">World Data Overview ...</h1>
-            <article class="textbox">
+            <div class="textbox">
                 <p>
                     Wikipedia [ˌvɪkiˈpeːdia] ist ein am 15. Januar 2001 gegründetes gemeinnütziges Projekt zur Erstellung einer Enzyklopädie
                     in zahlreichen Sprachen mit Hilfe des Wiki­prinzips. Gemäß Publikumsnachfrage und Verbreitung gehört Wikipedia
@@ -113,15 +113,15 @@
                 <p>
                     <a href="https://de.wikipedia.org/wiki/Wikipedia">Wikipedia</a>
                 </p>
-            </article>
-            <section class="showhide">
+            </div>
+            <div class="showhide">
                 Show/Hide: 
                  <a class="active" onclick="showhide(2)">birth rate</a>  
                 | <a class="active" onclick="showhide(3)">cellphones</a> 
                 | <a class="active" onclick="showhide(4)">children</a> 
                 | <a class="active" onclick="showhide(5)">electricity usage</a> 
                 | <a class="active" onclick="showhide(6)">internet user</a> 
-            </section>
+            </div>
             <!-- World Data Tabelle -->
             <table id="sortable">
                 <colgroup>
@@ -135,7 +135,7 @@
                 </colgroup>
                 <!-- Tabelenkopf -->
                 <thead>
-    
+                    <tr>
                     <th>ID</th>
                     <th onclick="sort(1)">Country 
                         <i class="fa fa-angle-up" aria-hidden="true"></i>
@@ -153,6 +153,7 @@
                         <th>military expenditure gdp%</th>
                         <th>gps lat</th>
                         <th>gps long</th>-->
+                    </tr>
                 </thead>
                 <!-- Tabellenkörper -->
                 <tbody>
@@ -558,14 +559,14 @@
                     </tr>
                 </tbody>
             </table>
-            <section class="showhide">
+            <div class="showhide">
                 Show/Hide: 
                  <a class="active" onclick="showhide(2)">birth rate</a>  
                 | <a class="active" onclick="showhide(3)">cellphones</a> 
                 | <a class="active" onclick="showhide(4)">children</a> 
                 | <a class="active" onclick="showhide(5)">electricity usage</a> 
                 | <a class="active" onclick="showhide(6)">internet user</a> 
-            </section>
+            </div>
             <footer>
                 First Course Exercise
                 <b>HTML, CSS and JS</b> of the lecture Web and Multimedia Engineering.
