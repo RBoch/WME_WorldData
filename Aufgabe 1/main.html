@@ -12,10 +12,9 @@
         <link rel="stylesheet" href="main.css">
         <link rel="stylesheet" href="http://fontawesome.io/" type="text/css">
         <link rel="stylesheet" href="https://fonts.google.com/specimen/Roboto" type="text/css">
-        
+        <script src="main.js"></script>
         <script src="https://use.fontawesome.com/d01e518936.js"></script>
-        <!-- title, description, author, keywords --> 
-        
+        <!-- title, description, author, keywords -->        
     </head>
     <body>
 <!-- Logo und Navigationsleiste -->
@@ -124,7 +123,7 @@
                 | <a class="internet">internet user</a> 
             </section>
             <!-- World Data Tabelle -->
-            <table>
+            <table id="sortable">
                 <colgroup>
                     <col class="idcol">
                     <col class="countrycol">
@@ -138,7 +137,7 @@
                 <thead>
     
                     <th>ID</th>
-                    <th>Country 
+                    <th onclick="sort(1)">Country 
                         <i class="fa fa-angle-up" aria-hidden="true"></i>
                         <i class="fa fa-angle-down" aria-hidden="true"></i>
                     </th>

@@ -132,6 +132,21 @@ li a:hover {
     text-decoration: underline;
     cursor: pointer;
 }
+
+.fa-angle-up {
+    color: gray;
+}
+.fa-angle-down {
+    color: gray;
+}
+
+.fa-angle-up-active {
+    color: black;
+}
+.fa-angle-down-active {
+    color: black;
+}
+
 table {
     margin-top: 2em;
     border-collapse: collapse;
