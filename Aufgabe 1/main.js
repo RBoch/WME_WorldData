@@ -1,4 +1,19 @@
-
+function showhide(n){
+    var sections = document.getElementsByClassName("showhide");
+    var cols = document.getElementsByTagName("col");
+    var visibility = cols[n].style.visibility;
+    if(visibility != "collapse"){
+        for(var i = 0; i < sections.length; i++){
+            sections[i].getElementsByTagName("a")[n-2].className = "deactive";
+        }
+        cols[n].style.visibility = "collapse";
+    } else {
+        for(var i = 0; i < sections.length; i++){
+            sections[i].getElementsByTagName("a")[n-2].className = "active";
+        }
+        cols[n].style.visibility = "visible";
+    }
+}
 
 
 //Code für Sortierung von w3schools https://www.w3schools.com/howto/howto_js_sort_table.asp
