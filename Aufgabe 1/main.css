@@ -2,7 +2,9 @@
 @import url('https://fonts.googleapis.com/css?family=Roboto');
 
 *{
-   font-family:"Roboto", sans-serif; 
+   font-family:"Roboto", sans-serif;
+   font-size: 14px;
+   line-height: 145%;
 }
 
 
@@ -17,13 +19,18 @@ body {
 }
 #wrapper {
     margin: auto;
-    padding-top:5em; 
+    padding-top:6em; 
     max-width: 1170px;
 
 }
 
-a {
-    color: 9ac334;
+#wrapper a:not([class]):not([id]) {
+    color: #9ac334;
+    text-decoration: none;
+}
+#wrapper a:not([class]):not([id]):hover {
+    color: green;
+    text-decoration: underline;
 }
 
 header {
@@ -45,7 +52,7 @@ header img, header nav {
     
 }
 
-  logo a:hover {
+logo a:hover {
       background: url(world_data_logo_v1_a_02.png) no-repeat top left;
 }
 
@@ -105,10 +112,12 @@ li a:hover {
 
 #content {
     padding-top: 175px;
-
 }
 
-   
+h1 {
+    font-size: 24px;
+    font-weight: normal;
+} 
 
 .textbox {
     box-shadow: 0.3em 0.3em 0.3em grey;
@@ -122,8 +131,7 @@ li a:hover {
 
 
 .showhide {
-    margin: 2em;
-    font-size: 1em;
+    margin-top: 2em;
     color: grey;
 }
 
