@@ -226,29 +226,29 @@ td {
         padding-top: 6em;
     }
 
-    .wrapper.responsive li {
+    .mainnav.responsive li {
+        width: auto;
+        height: auto;
+        padding-left: 0;
         float: left;
         border-left:1px solid darkgray;
         border-right:1px solid darkgray;
-    }
+       background: transparent;
+        line-height: inherit
+      }
     
-    .wrapper.responsive li a {
+    .mainnav.responsive li a{
         color: whitesmoke;
         text-align: center;
         text-decoration: none;
         margin: auto;
         min-width:8em;
         height: auto;
-        background: dimgray;
         -moz-transition: background 0,2s;
         -moz-transition-duration: 4s;
         color: dimgray;
      line-height: 80px;
     }
-    .mainnav.responsive li {
-        width: auto;
-        padding-left: 0;
-      }
     
     .textbox {
         column-count: 3;
