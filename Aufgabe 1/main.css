@@ -163,8 +163,13 @@ td {
     margin-right: 3em;
 }
 
+#wrapper.responsive {
+   padding-top:15em;
+}
+
 .mainnav a {
     display: none;
+   
 }
 
 .mainnav.responsive a {
@@ -180,7 +185,6 @@ td {
     border-right:none;
    background:white;
      line-height: 35px;
-   
   }
 
 .mainnav.responsive li a{
@@ -214,16 +218,12 @@ td {
     
     .mainnav a{
         display: block;
-          position:relative;
-        
     }
 
     .mainnav.responsive li {
         width: auto;
-       
         padding-left: 0;
       }
-
     .textbox {
         column-count: 3;
     }
