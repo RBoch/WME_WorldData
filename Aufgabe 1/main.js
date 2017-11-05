@@ -74,7 +74,7 @@ function sort(n) {
   }
 }
 
-/*Menü responsiv*/
+
 function toggleMenu() {
   var x = document.getElementById("myTopnav");
   if (x.className === "mainnav") {
@@ -92,4 +92,5 @@ function logoIn(){
 function logoOut(){
   var logo = document.getElementById("logo");
   logo.src = "logo_color.png"
+
 }
