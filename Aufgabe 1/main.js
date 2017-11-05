@@ -77,10 +77,13 @@ function sort(n) {
 
 function toggleMenu() {
   var x = document.getElementById("myTopnav");
+  var y = document.getElementsByClassName("wrapper")
   if (x.className === "mainnav") {
       x.className += " responsive";
+      y[0].className += " responsive"
   } else {
       x.className = "mainnav";
+      y[0].className = "wrapper";
   }
 }
 

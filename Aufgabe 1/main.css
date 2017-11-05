@@ -164,7 +164,7 @@ td {
 }
 
 .wrapper.responsive {
-   padding-top:15em;
+   padding-top:25em;
 }
 
 .mainnav a {
@@ -222,6 +222,29 @@ td {
         
     }
 
+    .wrapper.responsive {
+        padding-top: 6em;
+    }
+
+    .wrapper.responsive li {
+        float: left;
+        border-left:1px solid darkgray;
+        border-right:1px solid darkgray;
+    }
+    
+    .wrapper.responsive li a {
+        color: whitesmoke;
+        text-align: center;
+        text-decoration: none;
+        margin: auto;
+        min-width:8em;
+        height: auto;
+        background: dimgray;
+        -moz-transition: background 0,2s;
+        -moz-transition-duration: 4s;
+        color: dimgray;
+     line-height: 80px;
+    }
     .mainnav.responsive li {
         width: auto;
         padding-left: 0;
