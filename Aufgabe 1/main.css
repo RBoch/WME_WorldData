@@ -210,8 +210,8 @@ td {
      
 }
 .mainnav.responsive  li a:hover {
-    background-color: none;
-    color: none;
+    background-color: transparent;
+    color: black;
 }
 
 
