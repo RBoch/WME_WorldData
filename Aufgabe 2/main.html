@@ -1,0 +1,583 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <meta charset="utf-8"/>
+        <title>WorldData, Team 35</title>
+        <meta name="author" content="Sara Fritze, Robert Bochmann">
+        <meta name="description" content="Lösung zur Aufgabe 1 Web und Multimedia Engineering WS1718 Team 35">
+        <meta name="keyword" content="World, Data, WME">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+        <link rel="stylesheet" href="https://github.com/murtaugh/HTML5-Reset/blob/master/assets/css/reset.css" type="text/css" />
+        <link rel="stylesheet" href="main.css">
+        <link rel="stylesheet" href="http://fontawesome.io/" type="text/html">
+        <link rel="stylesheet" href="https://fonts.google.com/specimen/Roboto" type="text/html">
+        <script src="https://use.fontawesome.com/d01e518936.js"></script>
+        <script src="main.js"></script>
+        <!-- title, description, author, keywords -->        
+    </head>
+    <body>
+<!-- Logo und Navigationsleiste -->
+        
+            <header>
+                <div id="headwrapper">
+                <a href="#">
+                    <img id="logo" src="logo_color.png" alt="WorldData" onmouseover="logoIn()" onmouseout="logoOut()">
+                </a> 
+                    <div id="toggle" onclick="toggleMenu()">
+                        <i  class="fa fa-bars" aria-hidden="true" ></i>
+                    </div>
+                  
+                <nav id="myTopnav" class="mainnav">
+                    
+
+                    <ul class="container" onclick="myFunction(this)" id="menu_items">
+
+
+                        <li>
+                            <a href="">
+                                <i class="fa fa-list-ul" aria-hidden="true"></i>
+                                A1 - Table
+                            </a>
+                        </li>
+                        <li>                           
+                            <a href="parse.php">
+                                <i class="fa fa-list-ul" aria-hidden="true"></i>
+                                A2 - Parse
+                            </a>
+                        </li>
+                        <li>                           
+                            <a href="save.php">
+                                <i class="fa fa-list-ul" aria-hidden="true"></i>
+                                A2 - Save
+                            </a>
+                        </li>
+                        <li>                            
+                            <a href="print.php">
+                                <i class="fa fa-list-ul" aria-hidden="true"></i>
+                                A2 - Print
+                            </a>
+                        </li>
+                        <li>                           
+                            <a href="">
+                                <i class="fa fa-list-ul" aria-hidden="true"></i>
+                                A3 - REST
+                            </a>
+                        </li>
+                        <li>                            
+                            <a href="">
+                                <i class="fa fa-list-ul" aria-hidden="true"></i>
+                                A4 - Via
+                            </a>
+                        </li>
+                    </ul>
+                </nav>
+                <script>
+                    function myFunction(x) {
+                        x.classList.toggle("change");
+                    }
+                </script>
+                </div>
+            </header>
+            <div class="wrapper">
+    
+            <h1>World Data Overview ...</h1>
+            <div class="textbox">
+                <h2>Data (word)</h2>
+                <p>
+                    In one sense, data is the plural form of datum. Datum actually can also be a count noun with the plural datums (see usage in datum article) 
+                    that can be used with cardinal numbers (e.g. "80 datums"); data (originally a Latin plural) is not used like a normal count noun with 
+                    cardinal numbers and can be plural with such plural determiners as these and many or as an uncountable noun with a verb in the singular form.
+                    [1] Even when a very small quantity of data is referenced (one number, for example) the phrase piece of data is often used, as opposed to datum. 
+                    The debate over appropriate usage continues,[2][3][4] but "data" as a singular form is far more common.[5]
+                </p>
+                <p>
+                    In English, the word datum is still used in the general sense of "an item given". In cartography, geography, nuclear magnetic 
+                    resonance and technical drawing it is often used to refer to a single specific reference datum from which distances to all other
+                     data are measured. Any measurement or result is a datum, though data point is now far more common.[6]
+                </p>
+                <p>
+                    Data is most often used as a singular mass noun in everyday usage.[7][8] Some major newspapers such as The New York Times use it 
+                    either in the singular or plural. In the New York Times the phrases "the survey data are still being analyzed" and "the first year 
+                    for which data is available" have appeared within one day.[9] The Wall Street Journal explicitly allows this usage in its style guide.[10] 
+                    The Associated Press style guide classifies data as a collective noun that takes the singular when treated as a unit but the plural when referring 
+                    to individual items ("The data is sound.", and "The data have been carefully collected.").[11]
+                </p>
+                <p>
+                    In scientific writing data is often treated as a plural, as in These data do not support the conclusions, but the word is also used as a 
+                    singular mass entity like information, for instance in computing and related disciplines.[12] British usage now widely accepts treating data 
+                    as singular in standard English,[13] including everyday newspaper usage[14] at least in non-scientific use.[15] UK scientific publishing still 
+                    prefers treating it as a plural.[16] Some UK university style guides recommend using data for both singular and plural use[17] and some recommend 
+                    treating it only as a singular in connection with computers.[18] The IEEE Computer Society allows usage of data as either a mass noun or plural based 
+                    on author preference,[19] while IEEE in the editorial style manual indicates to always use the plural form.[20] Some professional 
+                    organizations and style guides[21] require that authors treat data as a plural noun. For example, the Air Force Flight Test Center 
+                    specifically states that the word data is always plural, never singular.[22]
+                </p>
+                <p>
+                    <a href="https://en.wikipedia.org/wiki/Data_(word)">Wikipedia</a>
+                </p>
+            </div>
+            <div class="showhide">
+                Show/Hide: 
+                 <a class="active" onclick="showhide(2)">birth rate</a>  
+                | <a class="active" onclick="showhide(3)">cellphones</a> 
+                | <a class="active" onclick="showhide(4)">children</a> 
+                | <a class="active" onclick="showhide(5)">electric usage</a> 
+                | <a class="active" onclick="showhide(6)">internet usage</a> 
+            </div>
+            <!-- World Data Tabelle -->
+            <table id="sortable">
+                <colgroup>
+                    <col class="idcol">
+                    <col class="countrycol">
+                    <col class="birthdaycol">
+                    <col class="cellphonescol">
+                    <col class="childrencol">
+                    <col class="electricitycol">
+                    <col class="internetcol">
+                </colgroup>
+                <!-- Tabelenkopf -->
+                <thead>
+                    <tr>
+                    <th>ID</th>
+                    <th onclick="sort(1)">Country 
+                        <i class="fa fa-angle-up" aria-hidden="true"></i>
+                        <i class="fa fa-angle-down" aria-hidden="true"></i>
+                    </th>
+                    <th>birth rate / 1000</th>
+                    <th>cellphones / 100</th>
+                    <th>children / woman</th>
+                    <th>electric usage</th>
+                    <!--<th>gdp / capita</th>
+                        <th>gdp / capita growth</th>
+                        <th>inflation annual</th>-->
+                    <th>internet usage / 100</th>
+                    <!--<th>life expectancy</th>
+                        <th>military expenditure gdp%</th>
+                        <th>gps lat</th>
+                        <th>gps long</th>-->
+                    </tr>
+                </thead>
+                <!-- Tabellenkörper -->
+                <tbody>
+                    <tr>
+                        <td>001</td>
+                        <td>Brazil</td>
+                        <td>16.405</td>
+                        <td>90.01936334</td>
+                        <td>1.862</td>
+                        <td>2201.808724</td>
+                        <!--<td>4424.758692</td>
+                            <td>-1.520402823</td>
+                            <td>8.228535058</td>-->
+                        <td>39.22</td>
+                        <!--<td>74</td>
+                            <td>1.615173655</td>
+                            <td>-14.235004000</td>
+                            <td>-51.925280000</td>-->
+                    </tr>
+                    <tr>
+                        <td>002</td>
+                        <td>Canada</td>
+                        <td>10.625</td>
+                        <td>70.70997244</td>
+                        <td>1.668</td>
+                        <td>15119.76414</td>
+                        <!--<td>25069.86915</td>
+                            <td>-3.953353186</td>
+                            <td>2.944408564</td>-->
+                        <td>80.17086651</td>
+                        <!--<td>80.9</td>
+                            <td>1.415710422</td>
+                            <td>56.130366000</td>
+                            <td>-106.346771000</td>-->
+                    </tr>
+                    <tr>
+                        <td>003</td>
+                        <td>Chile</td>
+                        <td>15.04</td>
+                        <td>97.01862561</td>
+                        <td>1.873</td>
+                        <td>3276.06449</td>
+                        <!--<td>6451.631126</td>
+                            <td>-2.610485847</td>
+                            <td>7.47050527</td>-->
+                        <td>38.8</td>
+                        <!--<td>78.8</td>
+                            <td>3.064076139</td>
+                            <td>-35.675147000</td>
+                            <td>71.542969000</td>-->
+                    </tr>
+                    <tr>
+                        <td>004</td>
+                        <td>China</td>
+                        <td>13.536</td>
+                        <td>55.97490921</td>
+                        <td>1.642</td>
+                        <td>2632.724637</td>
+                        <!--<td>2208.403948</td>
+                            <td>8.648414427</td>
+                            <td>6.684109668</td>-->
+                        <td>28.97659939</td>
+                        <!--<td>75.6</td>
+                            <td>2.24110794</td>
+                            <td>35.86166000</td>
+                            <td>104.19539700</td>-->
+                    </tr>
+                    <tr>
+                        <td>005</td>
+                        <td>Colombia</td>
+                        <td>20.605</td>
+                        <td>92.34584564</td>
+                        <td>2.405</td>
+                        <td>1041.994137</td>
+                        <!--<td>3137.695335</td>
+                            <td>0.2081538559</td>
+                            <td>3.666941163</td>-->
+                        <td>30</td>
+                        <!--<td>75.3</td>
+                            <td>3.833780372</td>
+                            <td>4.570868000</td>
+                            <td>-74.297333000</td>-->
+                    </tr>
+                    <tr>
+                        <td>006</td>
+                        <td>Ecuador</td>
+                        <td>20.989</td>
+                        <td>92.84925653</td>
+                        <td>2.69</td>
+                        <td>1078.038961</td>
+                        <!--<td>1692.067197</td>
+                            <td>-1.079538461</td>
+                            <td>7.595866872</td>-->
+                        <td>24.6</td>
+                        <!--<td>74.1</td>
+                            <td>3.746501879</td>
+                            <td>-1.831239000</td>
+                            <td>-78.183406000</td>-->
+                    </tr>
+                    <tr>
+                        <td>007</td>
+                        <td>Egypt</td>
+                        <td>24.83</td>
+                        <td>69.43661504</td>
+                        <td>2.919 </td>
+                        <td>1607.918763</td>
+                        <!--<td>1911.964501</td>
+                            <td>2.856917581</td>
+                            <td>10.10750976</td>-->
+                        <td>24.28</td>
+                        <!--<td>70.2</td>
+                            <td>2.137305699</td>
+                            <td>26.820553000</td>
+                            <td>30.802498000</td>-->
+                    </tr>
+                    <tr>
+                        <td>008</td>
+                        <td>Finland</td>
+                        <td>11.127</td>
+                        <td>144.1530224</td>
+                        <td>1.86</td>
+                        <td>15241.61194</td>
+                        <!--<td>26205.68832</td>
+                            <td>-8.791558776</td>
+                            <td>0.4277308694</td>-->
+                        <td>82.53133098</td>
+                        <!--<td>79.7</td>
+                            <td>1.501872268</td>
+                            <td>61.924110000</td>
+                            <td>25.748151000</td>-->
+                    </tr>
+                    <tr>
+                        <td>009</td>
+                        <td>France</td>
+                        <td>12.21</td>
+                        <td>95.44434226</td>
+                        <td>1.978</td>
+                        <td>7339.946832</td>
+                        <!--<td>22508.76261</td>
+                            <td>-3.264056248</td>
+                            <td>1.050366124</td>-->
+                        <td>69.0633593</td>
+                        <!--<td>81</td>
+                            <td>2.55313249</td>
+                            <td>46.22763800</td>
+                            <td>2.21374900</td>-->
+                    </tr>
+                    <tr>
+                        <td>010</td>
+                        <td>Germany </td>
+                        <td>8.136 </td>
+                        <td>127.4188883 </td>
+                        <td>1.376 </td>
+                        <td>6753.05764 </td>
+                        <!--<td>24368.19561 </td>
+                            <td>-4.886323581 </td>
+                            <td>0.5959234322 </td>-->
+                        <td>79.48523153 </td>
+                        <!--<td>80 </td>
+                            <td>1.438871341 </td>
+                            <td>51.165691000 </td>
+                            <td>10.451526000</td>-->
+                    </tr>
+                    <tr>
+                        <td>011</td>
+                        <td>Iceland </td>
+                        <td>14.738 </td>
+                        <td>107.6604456 </td>
+                        <td>2.123 </td>
+                        <td>51259.18763 </td>
+                        <!--<td>35310.97441 </td>
+                            <td>-6.990418561 </td>
+                            <td>6.900703626 </td>-->
+                        <td>92.13686385 </td>
+                        <!--<td>82.2 </td>
+                            <td>0.0820538039 </td>
+                            <td>64.9630510000</td>
+                            <td>-19.0208350000</td>-->
+                    </tr>
+                    <tr>
+                        <td>012</td>
+                        <td>Iraq </td>
+                        <td>31.585 </td>
+                        <td>65.47478839 </td>
+                        <td>4.276 </td>
+                        <td>1086.323768 </td>
+                        <!--<td>752.1833548 </td>
+                            <td>1.141874289 </td>
+                            <td>25.22442136 </td>-->
+                        <td>1.047516616 </td>
+                        <!--<td>68.1 </td>
+                            <td>4.621383386 </td>
+                            <td>33.223191000 </td>
+                            <td>43.679291000</td>-->
+                    </tr>
+                    <tr>
+                        <td>013</td>
+                        <td>Japan </td>
+                        <td>8.201 </td>
+                        <td>91.8955442 </td>
+                        <td>1.359 </td>
+                        <td>7838.005685 </td>
+                        <!--<td>38242.02429 </td>
+                            <td>-6.180260885 </td>
+                            <td>-2.08543109 </td>-->
+                        <td>77.38468963 </td>
+                        <!--<td>82.8 </td>
+                            <td>1.019445017 </td>
+                            <td>36.204824000 </td>
+                            <td>138.252924000</td>-->
+                    </tr>
+                    <tr>
+                        <td>014</td>
+                        <td>Kazakhstan </td>
+                        <td>19.775 </td>
+                        <td>107.7147692 </td>
+                        <td>2.537 </td>
+                        <td>4447.142293 </td>
+                        <!--<td>2345.86415 </td>
+                            <td>-1.437812068 </td>
+                            <td>19.5422854 </td>-->
+                        <td>17.91457965 </td>
+                        <!--<td>66.6 </td>
+                            <td>1.105385125 </td>
+                            <td>48.019573000 </td>
+                            <td>66.923684000</td>-->
+                    </tr>
+                    <tr>
+                        <td>015</td>
+                        <td>Mexico </td>
+                        <td>19.091 </td>
+                        <td>74.25785259 </td>
+                        <td>2.313 </td>
+                        <td>1869.82352 </td>
+                        <!--<td>5875.619997 </td>
+                            <td>-7.417438847 </td>
+                            <td>4.033645258 </td>-->
+                        <td>26.34 </td>
+                        <!--<td>75.5 </td>
+                            <td>0.5396656609 </td>
+                            <td>23.6345010000</td>
+                            <td>-102.5527840000</td>-->
+                    </tr>
+                    <tr>
+                        <td>016</td>
+                        <td>New Zealand </td>
+                        <td>13.831 </td>
+                        <td>108.7301521 </td>
+                        <td>2.125 </td>
+                        <td>9375.550304 </td>
+                        <!--<td>14778.16393 </td>
+                            <td>-1.552308788 </td>
+                            <td>3.486782259 </td>-->
+                        <td>79.82609287 </td>
+                        <!--<td>80.3 </td>
+                            <td>1.140562366 </td>
+                            <td>-40.900557000</td>
+                            <td>174.885971000</td>-->
+                    </tr>
+                    <tr>
+                        <td>017</td>
+                        <td>Nigeria </td>
+                        <td>40.134 </td>
+                        <td>48.23561006 </td>
+                        <td>6.021 </td>
+                        <td>119.8151486 </td>
+                        <!--<td>513.5003377 </td>
+                            <td>4.3526073 </td>
+                            <td>9.313146383 </td>-->
+                        <td>20 </td>
+                        <!--<td>58.5 </td>
+                            <td>0.8924302789 </td>
+                            <td>9.0819990000 </td>
+                            <td>8.6752770000</td>-->
+                    </tr>
+                    <tr>
+                        <td>018</td>
+                        <td>Peru </td>
+                        <td>21.342 </td>
+                        <td>85.86901405 </td>
+                        <td>2.545 </td>
+                        <td>1043.052601 </td>
+                        <!--<td>2955.186222 </td>
+                            <td>-0.2228977721 </td>
+                            <td>4.49134447 </td>-->
+                        <td>31.4 </td>
+                        <!--<td>76.7 </td>
+                            <td>1.348875763 </td>
+                            <td>-9.189967000 </td>
+                            <td>-75.015152000</td>-->
+                    </tr>
+                    <tr>
+                        <td>019</td>
+                        <td>Russia </td>
+                        <td>10.828 </td>
+                        <td>161.1162887 </td>
+                        <td>1.537 </td>
+                        <td>6132.978648 </td>
+                        <!--<td>2806.41483 </td>
+                            <td>-7.749103694 </td>
+                            <td>11.60398093 </td>-->
+                        <td>29.23584146 </td>
+                        <!--<td>68.3 </td>
+                            <td>4.36259042 </td>
+                            <td>61.52401000 </td>
+                            <td>105.31875600</td>-->
+                    </tr>
+                    <tr>
+                        <td>020</td>
+                        <td>Saudi Arabia </td>
+                        <td>23.569 </td>
+                        <td>167.3474553 </td>
+                        <td>2.898 </td>
+                        <td>7430.743897 </td>
+                        <!--<td>9294.355996 </td>
+                            <td>-2.242127204 </td>
+                            <td>14.36222827 </td>-->
+                        <td>38 </td>
+                        <!--<td>77.6 </td>
+                            <td>10.95653405 </td>
+                            <td>23.88594200 </td>
+                            <td>45.07916200</td>-->
+                    </tr>
+                    <tr>
+                        <td>021</td>
+                        <td>South Africa </td>
+                        <td>22.113 </td>
+                        <td>93.33587369 </td>
+                        <td>2.5 </td>
+                        <td>4532.021902 </td>
+                        <!--<td>3697.67368 </td>
+                            <td>-2.732989408 </td>
+                            <td>7.861608575 </td>-->
+                        <td>10.08745979 </td>
+                        <!--<td>55.8 </td>
+                            <td>1.394530379 </td>
+                            <td>-30.559482000</td>                        
+                            <td>22.937506000</td>-->
+                    </tr>
+                    <tr>
+                        <td>022</td>
+                        <td>Sweden </td>
+                        <td>11.72 </td>
+                        <td>112.1241184 </td>
+                        <td>1.937 </td>
+                        <td>14143.01101 </td>
+                        <!--<td>30885.45914 </td>
+                            <td>-5.976535294 </td>
+                            <td>1.022227082 </td>-->
+                        <td>91.12326108 </td>
+                        <!--<td>81.2 </td>
+                            <td>1.247701873 </td>
+                            <td>60.128161000 </td>
+                            <td>18.643501000</td>-->
+                    </tr>
+                    <tr>
+                        <td>023</td>
+                        <td>United Arab Emirates</td>
+                        <td>14.027 </td>
+                        <td>153.7997194 </td>
+                        <td>1.903 </td>
+                        <td>9998.291079 </td>
+                        <!--<td>22507.00157 </td>
+                            <td>-11.99171952 </td>
+                            <td>8.549032358 </td>-->
+                        <td>64 </td>
+                        <!--<td>76.1 </td>
+                            <td>5.834881976 </td>
+                            <td>23.424076000 </td>
+                            <td>53.847818000</td>-->
+                    </tr>
+                    <tr>
+                        <td>024</td>
+                        <td>United Kingdom </td>
+                        <td>12.195 </td>
+                        <td>130.1742603 </td>
+                        <td>1.89 </td>
+                        <td>5685.635995 </td>
+                        <!--<td>27933.77767 </td>
+                            <td>-5.019251823 </td>
+                            <td>2.861406642 </td>-->
+                        <td>77.79971962 </td>
+                        <!--<td>79.7 </td>
+                            <td>2.667209048 </td>
+                            <td>52.355517700 </td>
+                            <td>-1.174319700</td>-->
+                    </tr>
+                    <tr>
+                        <td>025</td>
+                        <td>United States </td>
+                        <td>14.191 </td>
+                        <td>89.14911634 </td>
+                        <td>2.002 </td>
+                        <td>12913.71143 </td>
+                        <!--<td>36539.22823 </td>
+                            <td>-4.342271218 </td>
+                            <td>1.152326348 </td>-->
+                        <td>71.21181627 </td>
+                        <!--<td>78.3 </td>
+                            <td>4.822730027 </td>
+                            <td>37.090240000 </td>
+                            <td>-95.712891000</td>-->
+                    </tr>
+                </tbody>
+            </table>
+            <div class="showhide">
+                Show/Hide: 
+                 <a class="active" onclick="showhide(2)">birth rate</a>  
+                | <a class="active" onclick="showhide(3)">cellphones</a> 
+                | <a class="active" onclick="showhide(4)">children</a> 
+                | <a class="active" onclick="showhide(5)">electricity usage</a> 
+                | <a class="active" onclick="showhide(6)">internet user</a> 
+            </div>
+            <footer>
+                First Course Exercise
+                <b>HTML, CSS and JS</b> of the lecture Web and Multimedia Engineering.
+                <p>
+                    this solution has been created by:
+                    <br> Sara Fritze (s1072515), Robert Bochmann (s9584289), Team 35
+                </p>
+            </footer>
+        </div>
+    </body>
+</html>
