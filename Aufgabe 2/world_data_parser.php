@@ -3,6 +3,8 @@
 
 class WorldDataParser {
 /*
+*Aufgabe: Serverseitiges Parsen einer CSV Datei
+*
 * Parsen: Daten aus der CSV datei holen bzw. lesen und sie wird in einer Array-Struktur ausgegeben
 *
 * Die CSV Datei wird Zeilenweise "geparst"
@@ -30,14 +32,14 @@ class WorldDataParser {
     }
 
     /* 
-    *es wird als XML Datei gespeichert
+    * Aufgabe: Eingelesene Datenstruktur als XML Datei speichern
     *
     *
     */
     function saveXML() {}
     
-    /* 
-    *es wird wie in einer HTML-Tabelle dargestellt
+    /*
+    *Aufgabe: Verwenden der erstellten XML Datei und Transformation via XSLT in valides HTML5
     *
     *
     */
