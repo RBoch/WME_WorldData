@@ -7,6 +7,7 @@ require 'world_data_parser.php';
 $parser = new WorldDataParser();
 $data = $parser->parseCSV('data/world_data_v1.csv');
 
+// Element wird in einer Schriftart mit fester Breite angezeigt, wobei Leerzeichen und Zeilenumbrüche erhalten bleiben.
 echo '<pre>';
 // schreibt die Datei aus dem Dataordner, r - nur lesen 
 print_r($data);
