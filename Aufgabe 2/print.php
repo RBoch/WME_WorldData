@@ -125,17 +125,26 @@
                 | <a class="active" onclick="showhide(5)">electric usage</a> 
                 | <a class="active" onclick="showhide(6)">internet usage</a> 
             </div>
-            <!-- World Data Tabelle -->
-            <table id="sortable">
-                    <div class="table">
-                        
-       <!-- Hier die PHP Anweisung -->
-                        
-                        <?php
+           <!-- World Data Tabelle -->
+            <!-- Hier die PHP Anweisung -->
+            <?php
+                 
+                // fordert die php datei an
+                require 'world_data_parser.php';
 
-       
+                //holt die CSV Datei aus dem Data Ordner 
+                $parser = new WorldDataParser();
+                $data = $parser->parseCSV('data/world_data_v1.csv');
 
-        ?>
+                // erstelle XML Datai
+                $result = $parser -> saveXML($data);
+
+                // erstelle Tabelle aus XML
+                $table = $parser -> printXML("world_data.xml", "world_data.xsl");
+
+                print $table;
+            
+            ?>
     </div>
             </table>
             <div class="showhide">
