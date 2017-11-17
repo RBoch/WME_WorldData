@@ -74,17 +74,23 @@ class WorldDataParser {
     */
     function printXML($xmlFile, $xsltFile) {
         
+        // einlesen der xml Datei
         $xml = new DOMDocument();
         $xml -> load($xmlFile);
 
+        // einlesen der xsl Datei
         $xsl = new DOMDocument();
         $xsl -> load($xsltFile);
 
+        // erstellen eines neuen XSLT Prozessors
         $processor = new XSLTProcessor();
         
+        // importieren des xsl für Tabelle
         $processor -> importStyleSheet($xsl);
         
+        // überführung der XML in HTML Tabelle
         $table = $processor -> transformToXML($xml);
+        
         return $table;
     }
 }

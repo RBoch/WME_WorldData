@@ -142,6 +142,7 @@
                 // erstelle Tabelle aus XML
                 $table = $parser -> printXML("world_data.xml", "world_data.xsl");
 
+                // anzeigen der Tabelle
                 print $table;
             
             ?>

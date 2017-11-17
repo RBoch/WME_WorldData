@@ -2,6 +2,7 @@
 <xsl:stylesheet version="1.0" xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
  <xsl:output method="html" indent="yes"/>
 <xsl:template match="Countries">
+    <!-- Anlegen der Tabelle mit Column group, passend zu Aufgabe 1 für Sortierung und Ein-/Ausblenden-->
     <table id="sortable">
         <colgroup>
             <col class="idcol"/>
@@ -12,6 +13,7 @@
             <col class="electricitycol"/>
             <col class="internetcol"/>
         </colgroup>
+        <!-- Tabellenkopf -->
         <thead>
             <tr>
                 <th>ID</th>
@@ -27,6 +29,7 @@
                 <th>internet usage / 100</th>
             </tr>
         </thead>
+        <!-- Einlesen der Welt Daten aus XML -->
         <tbody>
             <xsl:for-each select="Country">
                 <tr>
