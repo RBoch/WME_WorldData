@@ -36,7 +36,36 @@ class WorldDataParser {
     *
     *
     */
-    function saveXML() {}
+    // Funktion zur Rekursiven XML erstellung
+    function arrayToXml($data, $xmlData){
+        foreach ($data as $key => $value) {
+            $key = str_replace(" ", "_", $key);
+            if(is_numeric($key)){
+                $key = "Country";
+            }
+            if (is_array($value) ){
+                $sub = $xmlData->addChild($key);
+                $this -> arrayToXml($value, $sub);
+            } else {
+                $xmlData -> addChild("$key", htmlspecialchars("$value"));
+            }
+        }
+    }
+
+    function saveXML($data) {
+
+        // Erstelle ein XML Objekt
+        $xmlData = new SimpleXMLElement('<?xml version="1.0"?><Countries></Countries>');
+
+        // Konvertiere Array zu XML
+        $this -> arrayToXml($data, $xmlData);
+
+        // Speichern der erstellten XML
+        $result = $xmlData -> asXML("world_data.xml");
+
+        // Gebe $result zurück
+        return $result;
+    }
     
     /*
     *Aufgabe: Verwenden der erstellten XML Datei und Transformation via XSLT in valides HTML5
