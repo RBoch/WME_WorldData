@@ -19,23 +19,36 @@ app.use( express.static( path.join(__dirname, "public") ) );
 /**************************************************************************
 ****************************** csv2json *********************************
 **************************************************************************/
-var jsonWorld;
 
+// Globale Variable für World Data JSON
+global.jsonWorld;
+
+// Einbinden des File System Modules zum schreiben der JSON Datei
 const fs = require("fs");
+
+// Pfad zur World_Data.csv
 const csvPath = "world_data.csv";
-const csv = require('csvtojson');
-csv()
-    .fromFile(csvPath)
-    .on("end_parsed", (jsonObj) => {
-        jsonWorld = jsonObj;
-        var content = JSON.stringify(jsonWorld);
-        fs.writeFile("world_data.json", content, "utf8", (err) => {
-            if(err){
-                console.log(err);
-            } else {
-                console.log("Successfuly saved file.")
-            }
-        } )
+
+// Anlegen des Converter Objektes und parsen der CSV zu JSON
+var converter = new Converter({});
+converter
+    .fromFile(csvPath, (err, jsonObj) => {
+        // Prüfen ob parsen erfolgreich
+        if(err){
+            console.log(err);
+        }else {
+            // Speichern in globale Variable
+            jsonWorld = jsonObj;
+            // Speichern als Datei
+            var content = JSON.stringify(jsonWorld);
+            fs.writeFile("world_data.json", content, "utf8", (err) => {
+                if(err){
+                    console.log(err);
+                } else {
+                    console.log("Successfuly saved file.")
+                }
+            } )
+        }
     } );
 
 /**************************************************************************
