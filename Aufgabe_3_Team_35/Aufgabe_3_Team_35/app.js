@@ -19,6 +19,24 @@ app.use( express.static( path.join(__dirname, "public") ) );
 /**************************************************************************
 ****************************** csv2json *********************************
 **************************************************************************/
+var jsonWorld;
+
+const fs = require("fs");
+const csvPath = "world_data.csv";
+const csv = require('csvtojson');
+csv()
+    .fromFile(csvPath)
+    .on("end_parsed", (jsonObj) => {
+        jsonWorld = jsonObj;
+        var content = JSON.stringify(jsonWorld);
+        fs.writeFile("world_data.json", content, "utf8", (err) => {
+            if(err){
+                console.log(err);
+            } else {
+                console.log("Successfuly saved file.")
+            }
+        } )
+    } );
 
 /**************************************************************************
 ********************** handle HTTP METHODS ***********************

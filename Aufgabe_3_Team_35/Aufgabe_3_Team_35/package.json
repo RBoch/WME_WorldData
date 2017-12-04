@@ -9,5 +9,7 @@
   "author": "TEAM_XX",
   "license": "ISC",
   "dependencies": {
+    "csvtojson": "^1.1.9",
+    "express": "^4.16.2"
   }
 }
