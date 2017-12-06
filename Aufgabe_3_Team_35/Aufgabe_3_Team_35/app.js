@@ -95,6 +95,7 @@ app.get("/properties/:num?" , (req, res) => {
         }
     }
 })
+
 // findet Land mit der ID "id" und gibt dieses zurück
 function getCountryData(id){
     for( i = 0; i < jsonWorld.length; i++){
