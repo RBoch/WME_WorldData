@@ -55,10 +55,47 @@ converter
 ********************** handle HTTP METHODS ***********************
 **************************************************************************/
 
-function getWorldData(){
-    return jsonWorld;
-}
+/********************** handle HTTP GET ***********************/
 
+// Get /items(/id1(/id2))
+app.get("/items/:id1?/:id2?", (req, res) => {
+    var response;
+    if(req.params.id2 == null){
+        if(req.params.id1 == null){
+            // beziehe alle Daten
+            response = jsonWorld;
+        } else {
+            // beziehe Daten für Land mit ID 
+            response = getCountryData(req.params.id1);
+        }
+    } else {
+        // beziehe Daten für Länder zwichen ID 1 und ID 2
+        response = getCountriesData(req.params.id1,req.params.id2);
+    }
+    // sende Antwort
+    res.send(response);
+})
+
+// Get /properties(/num)
+app.get("/properties/:num?" , (req, res) => {
+    // Erstelle ein array mit allen EIgenschaftsnamen
+    var keys = [];    
+    for(var key in jsonWorld[1]){
+        keys.push(key);
+    }
+
+    // wenn kein num Parameter angegeben, gib gesamtes Array zurück
+    if (req.params.num == null){
+        res.send(keys);
+    } else{
+        if(req.params.num >= 0 && req.params.num < keys.length){
+            res.send(keys[req.params.num]);
+        } else{
+            res.send("No such property available")
+        }
+    }
+})
+// findet Land mit der ID "id" und gibt dieses zurück
 function getCountryData(id){
     for( i = 0; i < jsonWorld.length; i++){
         if(jsonWorld[i].id == id){
@@ -68,35 +105,30 @@ function getCountryData(id){
     return "No such id {" + id + "} in database.";
 }
 
-function getRangeData(id1, id2){
+// findet alle Länder zwichen zwei Ländern und gibt dieses zurück
+function getCountriesData(id1, id2){
     var range = [];
+    
+    // wenn id1 nach id2, tauschen
+    if(id1 > id2){
+        var tmpid = id1;
+        id1 = id2;
+        id2 = tmpid;
+    }
+
     for( i = 0; i < jsonWorld.length; i++){
         if(jsonWorld[i].id >= id1 && jsonWorld[i].id <= id2){
             range.push(jsonWorld[i]);
         }
     }
-    return range;
+    if(range.length > 0){
+        return range;
+    } else {
+        return "Range not possible";
+    }
 }
 
-// Get /items(/id1(/id2))
-app.get("/items/:id1?/:id2?", (req, res) => {
-    var response;
-    if(req.params.id2 == null){
-        if(req.params.id1 == null){
-            // beziehe alle Daten
-            response = getWorldData();
-        } else {
-            // beziehe Daten für Land mit ID 
-            response = getCountryData(req.params.id1);
-        }
-    } else {
-        // beziehe Daten für Länder zwichen ID 1 und ID 2
-        response = getRangeData(req.params.id1,req.params.id2);
-    }
-    // sende Antwort
-    console.log(typeof response);
-    res.send(response);
-})
+
 
 
 // DO NOT CHANGE!
