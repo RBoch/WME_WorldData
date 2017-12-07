@@ -64,16 +64,24 @@ app.get("/items/:id1?/:id2?", (req, res) => {
         if(req.params.id1 == null){
             // beziehe alle Daten
             response = jsonWorld;
+            //console.log("all");
         } else {
             // beziehe Daten für Land mit ID 
             response = getCountryData(req.params.id1);
+            //console.log("id: " + req.params.id1);
         }
     } else {
         // beziehe Daten für Länder zwichen ID 1 und ID 2
         response = getCountriesData(req.params.id1,req.params.id2);
+        //console.log("id: " + req.params.id1+ "id2: " + req.params.id2);
     }
     // sende Antwort
-    res.send(response);
+    if(typeof response == typeof jsonWorld || typeof response == typeof jsonWorld[0]){
+        res.send(response);
+    } else {
+        res.statusMessage = response;
+        res.status(400).end();
+    }
 })
 
 // Get /properties(/num)
@@ -91,7 +99,8 @@ app.get("/properties/:num?" , (req, res) => {
         if(req.params.num >= 0 && req.params.num < keys.length){
             res.send(keys[req.params.num]);
         } else{
-            res.send("No such property available")
+            res.statusMessage = "No such property available.“"
+            res.status("400").end();
         }
     }
 })

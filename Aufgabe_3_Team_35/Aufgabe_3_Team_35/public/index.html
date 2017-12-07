@@ -14,7 +14,7 @@
 	<link href="assets/css/style.css" type="text/css" rel="stylesheet">
 </head>
 
-<body onload="init()">
+<body>
 
 <header id="sticky_header">
 	<nav class="container clearfix" role="navigation">
@@ -52,12 +52,12 @@
 					<h2>Filter Countries</h2>
 					<form name="country_filter" id="country_filter" method="GET">
 						<p>
-							<label for="country_filter_id">country id</label>
+							<label for="country_filter_id">first country id</label>
 							<input type="text" name="country_filter_id" id="country_filter_id">
 						</p>
 						<p>
-							<label for="country_filter_range">country id range (eg: 2-5)</label>
-							<input type="text" name="country_filter_range" id="country_filter_range">
+							<label for="country_filter_range">second country id for range</label>
+							<input type="text" name="country_filter_id2" id="country_filter_id2">
 						</p>
 						<p class="submit">
 							<input type="submit" name="submit" id="add_submit" value="Filter Countries">
@@ -92,7 +92,7 @@
 							<input type="number" name="country_cellphone" id="country_cellphone">
 						</p>
 						<p class="submit">
-							<input type="submit" name="submit" id="add_submit" value="Add Country">
+							<input type="submit" name="submit" id="add_submit" value="Add Country" onclick="addCountry()">
 						</p>
 					</form>
 				</div>
@@ -106,7 +106,7 @@
 							<input type="text" name="country_delete_id" id="country_delete_id">
 						</p>
 						<p class="submit">
-							<input type="submit" name="submit" id="rm_submit" value="Remove Country">
+							<input type="submit" name="submit" id="rm_submit" value="Remove Country" onclick="deletCountry()">
 						</p>
 					</form>
 				</div>
