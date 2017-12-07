@@ -118,13 +118,6 @@ function getCountryData(id){
 // findet alle Länder zwichen zwei Ländern und gibt dieses zurück
 function getCountriesData(id1, id2){
     var range = [];
-    
-    // wenn id1 nach id2, tauschen
-    if(id1 > id2){
-        var tmpid = id1;
-        id1 = id2;
-        id2 = tmpid;
-    }
 
     for( i = 0; i < jsonWorld.length; i++){
         if(jsonWorld[i].id >= id1 && jsonWorld[i].id <= id2){

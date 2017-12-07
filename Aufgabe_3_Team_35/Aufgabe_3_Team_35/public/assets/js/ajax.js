@@ -31,10 +31,19 @@ $(document).ready(() => {
     
         var URL = "http://localhost:3000/items";
     
+        // wenn id1 nach id2, tauschen
+        if(id1 > id2){
+            var tmpid = id1;
+            id1 = id2;
+            id2 = tmpid;
+        }
+        
         // URL String für Anfrage von Land Daten oder range Daten
-        if(id1 != ""){
+        if(id1 != ""  && /^\d+$/.test(id1)){
+            id1 = formatID(id1);
             URL += "/" + id1;
-            if(id2 != ""){
+            if(id2 != "" && /^\d+$/.test(id2)){
+                id2 = formatID(id2);
                 URL += "/" + id2;
             }
         }
@@ -96,7 +105,15 @@ function fillProperties(data){
     }
 }
 
-
+function formatID(id){
+    if (id.length >= 3){
+        return id;
+    }
+    while(id.length < 3){
+        id = "0" + id;
+    }
+    return id;
+}
 
 
 function addCountry(){
