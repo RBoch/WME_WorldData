@@ -31,20 +31,17 @@ $(document).ready(() => {
     
         var URL = "http://localhost:3000/items";
     
-        // wenn id1 nach id2, tauschen
-        if(id1 > id2){
-            var tmpid = id1;
-            id1 = id2;
-            id2 = tmpid;
-        }
+          
         
         // URL String für Anfrage von Land Daten oder range Daten
         if(id1 != ""  && /^\d+$/.test(id1)){
             id1 = formatID(id1);
+            console.log("ID1 " + id1);
             URL += "/" + id1;
             if(id2 != "" && /^\d+$/.test(id2)){
                 id2 = formatID(id2);
-                URL += "/" + id2;
+                console.log("ID2 " + id2);
+                URL += "/" + id2;               
             }
         }
     
