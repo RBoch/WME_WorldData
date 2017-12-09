@@ -92,11 +92,13 @@ $(document).ready(() => {
     $("#country_add").on("submit", (e) => {
         e.preventDefault();
 
+        // beziehe Eingabe
         var form = document.forms["country_add"];
         var name = form["country_name"].value;
         var prop1 = form["country_birth"].value;
         var prop2 = form["country_cellphone"].value;
 
+        // JSON string vorlage
         var data =  '{"name": "/",' +
                     '"birth rate per 1000": "/",' +
                     '"cell phones per 100": "/",' +
@@ -111,12 +113,13 @@ $(document).ready(() => {
                     '"gps_lat": "/",' +
                     '"gps_long": "/"}';
 
+        // fülle JSON mit angegebenen Daten
         data = JSON.parse(data);
         data.name = name;
         data["birth rate per 1000"] = prop1;
         data["cell phones per 100"] = prop2;
 
-        console.log(keys);
+        // POST Request
         $.ajax({
             type: "POST",
             url: "http://localhost:3000/items",
@@ -166,7 +169,6 @@ function fillTable(data) {
     }
 
 }
-
 
 // füllt choicebox mit eigenschaften;
 function fillProperties(data){
