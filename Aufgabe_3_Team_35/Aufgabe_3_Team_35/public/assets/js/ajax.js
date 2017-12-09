@@ -41,8 +41,6 @@ $(document).ready(() => {
     
         var URL = "http://localhost:3000/items";
     
-          
-        
         // URL String für Anfrage von Land Daten oder range Daten
         if(id1 != ""  && /^\d+$/.test(id1)){
             id1 = formatID(id1);
@@ -87,7 +85,7 @@ $(document).ready(() => {
     });
 });
 
-
+// HTTP POST item
 $(document).ready(() => {
     $("#country_add").on("submit", (e) => {
         e.preventDefault();
@@ -128,9 +126,42 @@ $(document).ready(() => {
             async: true,
             data: JSON.stringify(data),
             contentType: "application/json; charset=utf-8",
-            dataType: "json"
+            dataType: "json",
+            success: () => {
+                location.reload();
+            }
         });  
     })
+})
+
+
+//HTTP DELETE
+$(document).ready(() => {
+    $("#country_delete").on("submit", (e) => {
+        e.preventDefault();
+
+        // Finde zu löschendes Land
+        var form = document.forms["country_delete"];
+        var id = form["country_delete_id"].value;
+
+        // URL String letztes Element oder id
+        var URL = "http://localhost:3000/items";       
+        if(id != ""  && /^\d+$/.test(id)){
+            id = formatID(id);
+            URL += "/" + id;
+        }
+
+        // HTTP DELETE
+        $.ajax({
+            type: "DELETE",
+            url: URL,
+            async: true,
+            success: () => {
+                location.reload();
+            }
+        });
+
+    });
 })
 
 // füllt Tabelle mit Inhalt aus Abfrage
@@ -171,6 +202,7 @@ function fillTable(data) {
 
 // füllt Auswahlboxen mit Eigenschaften;
 function fillProperties(data){
+    // Box für ein/ausblenden
     var selection = document.getElementById("prop_selection")
     for(var option in data){
         var opt = document.createElement("option");
@@ -179,6 +211,7 @@ function fillProperties(data){
         selection.appendChild(opt)
     }
 
+    // Box Land hinzufügen Eigenschaft 1
     var selection_prop_1 = document.getElementById("prop_1_selection")
     for(var option in data){
         if(option <= 1){
@@ -190,6 +223,7 @@ function fillProperties(data){
         selection_prop_1.appendChild(opt)
     }
 
+    // Box Land hinzufügen Eigenschaft 2
     var selection_prop_2 = document.getElementById("prop_2_selection")
     for(var option in data){
         if(option <= 1){

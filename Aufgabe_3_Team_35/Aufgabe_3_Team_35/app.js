@@ -142,7 +142,8 @@ function getCountriesData(id1, id2){
 
 app.post("/items", (req, res) => {
     // berechne neue id
-    var id = jsonWorld.length + 1;
+    var prevID = parseInt(jsonWorld[(jsonWorld.length - 1)].id, 10);
+    var id = prevID + 1;
 
     // erstelle json string
     var data = '{"id":"' + id +'"';
@@ -160,6 +161,43 @@ app.post("/items", (req, res) => {
     // gebe erfolgreichen status zurück
     res.statusMessage = "Added country " + jsonData.name + " to list!"
     res.status(200).send(jsonWorld);
+})
+
+/********************** handle HTTP DELETE ***********************/
+
+app.delete("/items/:id?", (req,res) => {
+    var id;
+    var country;
+    var isFound = false;
+    // ID angegeben ja/nein
+    if(req.params.id == null){
+        // löscht letztes element in worldData
+        id = jsonWorld.length - 1;
+        country = jsonWorld[id];
+        jsonWorld.splice(id);
+        res.statusMessage = "Deleted last country: " + country.name + "!";
+        res.status(200).send(jsonWorld);
+    } else {
+        //löscht element mit ID id
+        id = req.params.id
+        for(var i = 0; i < jsonWorld.length; i++){
+            if(id ==  jsonWorld[i].id){
+                country = jsonWorld[i];
+                isFound = true;
+                id = i;
+                break;
+            }
+        }
+        // prüft ob id vorhanden
+        if(isFound){
+            jsonWorld.splice(id, 1);
+            res.statusMessage = "Item " + country.id  + " deleted successfully";
+            res.status(200).send(jsonWorld);
+        } else {
+            res.statusMessage = "No such ID " + id + " in database!";
+            res.status(400).send(jsonWorld); 
+        }
+    }
 })
 
 // DO NOT CHANGE!
