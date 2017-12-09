@@ -159,7 +159,7 @@ app.post("/items", (req, res) => {
 
     // gebe erfolgreichen status zurück
     res.statusMessage = "Added country " + jsonData.name + " to list!"
-    res.status(200).end()
+    res.status(200).send(jsonWorld);
 })
 
 // DO NOT CHANGE!

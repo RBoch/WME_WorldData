@@ -124,12 +124,12 @@ $(document).ready(() => {
             type: "POST",
             url: "http://localhost:3000/items",
             async: true,
+            success: (data) => {
+                fillTable(data);
+            },
             data: JSON.stringify(data),
             contentType: "application/json; charset=utf-8",
-            dataType: "json",
-            success: (data) => {
-                alert(data);
-            }
+            dataType: "json"
         });  
     })
 })
