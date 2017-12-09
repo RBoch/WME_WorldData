@@ -88,7 +88,7 @@ app.get("/items/:id1?/:id2?", (req, res) => {
 app.get("/properties/:num?" , (req, res) => {
     // Erstelle ein array mit allen EIgenschaftsnamen
     var keys = [];    
-    for(var key in jsonWorld[1]){
+    for(var key in jsonWorld[1]){;
         keys.push(key);
     }
 
@@ -138,8 +138,29 @@ function getCountriesData(id1, id2){
     }
 }
 
+/********************** handle HTTP POST ***********************/
 
+app.post("/items", (req, res) => {
+    // berechne neue id
+    var id = jsonWorld.length + 1;
 
+    // erstelle json string
+    var data = '{"id":"' + id +'"';
+    for(var key in req.body){
+        data += ',"' + key + '":"' + req.body[key] +'"';
+    }
+    data += '}'
+    
+    //parse string in json objekt
+    var jsonData = JSON.parse(data);
+   
+    // füge neues Lang an Liste an
+    jsonWorld.push(jsonData);
+
+    // gebe erfolgreichen status zurück
+    res.statusMessage = "Added country " + jsonData.name + " to list!"
+    res.status(200).end()
+})
 
 // DO NOT CHANGE!
 // bind server to port
