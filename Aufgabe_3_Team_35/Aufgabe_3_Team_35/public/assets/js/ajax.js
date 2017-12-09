@@ -60,6 +60,13 @@ $(document).ready(() => {
             async: true,
             success: (data) => {
                 fillTable(data)
+                hideProperty(keys[6].replace(/ /g, "_"));
+                hideProperty(keys[7].replace(/ /g, "_"));
+                hideProperty(keys[8].replace(/ /g, "_"));
+                hideProperty(keys[10].replace(/ /g, "_"));
+                hideProperty(keys[11].replace(/ /g, "_"));
+                hideProperty(keys[12].replace(/ /g, "_"));
+                hideProperty(keys[13].replace(/ /g, "_"));
             }
         });
     });
