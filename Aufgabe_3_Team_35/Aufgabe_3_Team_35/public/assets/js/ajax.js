@@ -95,8 +95,10 @@ $(document).ready(() => {
         // beziehe Eingabe
         var form = document.forms["country_add"];
         var name = form["country_name"].value;
-        var prop1 = form["country_birth"].value;
-        var prop2 = form["country_cellphone"].value;
+        var prop_1 = document.getElementById("prop_1_selection").value;
+        var prop_2 = document.getElementById("prop_2_selection").value;
+        var prop_1_value = form["country_birth"].value;
+        var prop_2_value = form["country_cellphone"].value;
 
         // JSON string vorlage
         var data =  '{"name": "/",' +
@@ -116,17 +118,14 @@ $(document).ready(() => {
         // fülle JSON mit angegebenen Daten
         data = JSON.parse(data);
         data.name = name;
-        data["birth rate per 1000"] = prop1;
-        data["cell phones per 100"] = prop2;
+        data[keys[prop_1]] = prop_1_value;
+        data[keys[prop_2]] = prop_2_value;
 
         // POST Request
         $.ajax({
             type: "POST",
             url: "http://localhost:3000/items",
             async: true,
-            success: (data) => {
-                fillTable(data);
-            },
             data: JSON.stringify(data),
             contentType: "application/json; charset=utf-8",
             dataType: "json"
@@ -170,7 +169,7 @@ function fillTable(data) {
 
 }
 
-// füllt choicebox mit eigenschaften;
+// füllt Auswahlboxen mit Eigenschaften;
 function fillProperties(data){
     var selection = document.getElementById("prop_selection")
     for(var option in data){
@@ -178,6 +177,28 @@ function fillProperties(data){
         opt.innerHTML = data[option].replace(/_/g, " ");
         opt.value = option;
         selection.appendChild(opt)
+    }
+
+    var selection_prop_1 = document.getElementById("prop_1_selection")
+    for(var option in data){
+        if(option <= 1){
+            continue;
+        }
+        var opt = document.createElement("option");
+        opt.innerHTML = data[option].replace(/_/g, " ");
+        opt.value = option;
+        selection_prop_1.appendChild(opt)
+    }
+
+    var selection_prop_2 = document.getElementById("prop_2_selection")
+    for(var option in data){
+        if(option <= 1){
+            continue;
+        }
+        var opt = document.createElement("option");
+        opt.innerHTML = data[option].replace(/_/g, " ");
+        opt.value = option;
+        selection_prop_2.appendChild(opt)
     }
 }
 
